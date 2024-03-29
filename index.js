@@ -3,36 +3,49 @@ const menu = {
     Starters: ["Garlic Bread", "Bruschetta"],
     MainCourses: ["Margherita Pizza", "Spaghetti Carbonara"],
     Desserts: ["Tiramisu", "Cheesecake"]
-};
+}
+
 
 // Function to display menu items by category
 function displayMenuItems(menu) {
     // Get the menu container element from the HTML
+    const menuSection = document.getElementById('menu');
 
     // Loop through each category and its items in the menu object
-
-        // Create an element to represent the category
-
+    for (let i = 0; i < Object.keys(menu).length; i++) {
+        // Create an element to represent the category 
+        const categoryContainer = document.createElement('div');
         // Set the text content of the category element to the category name
-
+        categoryContainer.textContent = Object.keys(menu)[i];
         // Append the category element to the menu container
+        menuSection.appendChild(categoryContainer);
 
         // Create an element to represent a list of items
-
+        const listedItems = document.createElement('ul');
         // Append a list of items element to the menu container
+        menuSection.appendChild(listedItems);
 
         // Loop through the items in the category and create list items
-
+        for (let j = 0; j < menu[Object.keys(menu)[i]].length; j++) {
             // Create a list item element
-
+            const listItem = document.createElement('li');
             // Set the text content of the list item element to the item name
-
+            listItem.textContent = menu[Object.keys(menu)[i]][j];
             // Attach a click event listener to the list item to add it to the order
-
-            // Append the list item to the list of items
-
-            
+            listItem.addEventListener("click", function() {
+                // Append the clicked item's text content to the order list
+                document.getElementById('order-items').innerHTML += "<li>" + listItem.textContent + "</li>";
+            });
+            listItem.addEventListener("dbl-click", function() {
+                // Append the clicked item's text content to the order list
+                document.getElementById('order-items').innerHTML += "<li>" + '' + "</li>";
+            });
+            listedItems.appendChild(listItem);
+        }
+    }
 }
+
+displayMenuItems(menu)
 
 // Callback function for adding an item to the order
 function addToOrder(itemName) {
