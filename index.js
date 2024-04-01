@@ -50,16 +50,9 @@ function addToOrder(itemName) {
 
 // Function to initialize the menu system
 function initMenuSystem(menu) {
-    const menuItems = document.querySelectorAll('#menu li');
-
-    menuItems.forEach(function(listItem) {
-        listItem.addEventListener('click', function() {
-            const itemName = listItem.textContent;
-            addToOrder(itemName);
-        });
-    });
+    displayMenuItems(menu);
 }
 
 // Start the menu system by calling the init function
-displayMenuItems(menu);
+
 initMenuSystem(menu);
