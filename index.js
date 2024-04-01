@@ -20,7 +20,7 @@ function displayMenuItems(menu) {
     for (const category in menu) {
         if (menu.hasOwnProperty(category)) {
             const categoryContainer = document.createElement('div');
-            categoryContainer.textContent = category;
+            categoryContainer.innerHTML = '<b>' + category + '</b>';
             menuSection.appendChild(categoryContainer);
 
             const listedItems = document.createElement('ul');
@@ -28,7 +28,7 @@ function displayMenuItems(menu) {
 
             menu[category].forEach(item => {
                 const listItem = document.createElement('li');
-                listItem.textContent = item;
+                listItem.textContent = item
                 listItem.addEventListener("click", function() {
                     addToOrder(item);
                 });
