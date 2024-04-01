@@ -42,7 +42,7 @@ function displayMenuItems(menu) {
 function addToOrder(itemName) {
     const orderTotal = document.getElementById('order-total');
     const itemPrice = prices[itemName];
-    let total = parseFloat(orderTotal.textContent.substring(2)); // Extract the total price, remove 'R'
+    let total = parseFloat(orderTotal.textContent.substring(2)); //   Extract the total price, remove 'R'
     total += itemPrice;
     orderTotal.textContent = "R" + total.toFixed(2);
     document.getElementById('order-items').innerHTML += "<li>" + itemName + "</li>";
